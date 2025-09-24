@@ -1,0 +1,110 @@
+<!-- templates/emails/email_verification.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - BusiMap Rwanda</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .verification-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .verification-button:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗺️ BusiMap Rwanda</h1>
+            <p>Discover businesses across Rwanda</p>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {{ user.first_name }}!</h2>
+            
+            <p>Thank you for registering with BusiMap Rwanda! To complete your account setup, please verify your email address.</p>
+            
+            <div style="text-align: center;">
+                <a href="{{ verification_url }}" class="verification-button">
+                    Verify Email Address
+                </a>
+            </div>
+            
+            <p>Or copy and paste this link into your browser:</p>
+            <p style="word-break: break-all; background-color: #f8f9fa; padding: 10px; border-radius: 5px;">
+                {{ verification_url }}
+            </p>
+            
+            <div class="warning">
+                <strong>⚠️ Important:</strong> This verification link will expire in {{ expires_hours }} hours for your security.
+            </div>
+            
+            <p>If you didn't create an account with BusiMap Rwanda, you can safely ignore this email.</p>
+            
+            <p>Welcome to BusiMap Rwanda!<br>
+            <strong>The BusiMap Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 BusiMap Rwanda. All rights reserved.</p>
+            <p>This email was sent to {{ user.email }}</p>
+        </div>
+    </div>
+</body>
+</html>

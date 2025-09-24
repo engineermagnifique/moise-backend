@@ -1,0 +1,131 @@
+<!-- templates/emails/welcome_email.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to BusiMap Rwanda!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .next-steps {
+            background-color: #e8f5e8;
+            border: 1px solid #d4edda;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Welcome to BusiMap Rwanda!</h1>
+            <p>Discover businesses across Rwanda</p>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {{ user.first_name }},</h2>
+            
+            <p>Welcome to BusiMap Rwanda! We're excited to have you on board. Your account has been successfully created and you're now part of our growing community.</p>
+            
+            <div class="next-steps">
+                <h3 style="margin-top: 0; color: #155724;">Next Steps to Get Started:</h3>
+                <ol>
+                    <li><strong>Verify your email</strong> - Check your inbox for the verification email</li>
+                    <li><strong>Complete your profile</strong> - Add a profile picture and business details</li>
+                    <li><strong>Explore businesses</strong> - Start discovering local businesses</li>
+                    <li><strong>Add your business</strong> - List your own business on our platform</li>
+                </ol>
+            </div>
+            
+            <h3>What you can do with BusiMap Rwanda:</h3>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">🏢</div>
+                    <h4>Discover Businesses</h4>
+                    <p>Find local businesses across Rwanda</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📍</div>
+                    <h4>Interactive Maps</h4>
+                    <p>Explore businesses on interactive maps</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h4>Rate & Review</h4>
+                    <p>Share your experiences with others</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔔</div>
+                    <h4>Get Updates</h4>
+                    <p>Stay informed about new businesses</p>
+                </div>
+            </div>
+            
+            <p>If you have any questions or need help getting started, don't hesitate to reach out to our support team.</p>
+            
+            <p>Happy exploring!<br>
+            <strong>The BusiMap Rwanda Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 BusiMap Rwanda. All rights reserved.</p>
+            <p>This email was sent to {{ user.email }} as part of your BusiMap Rwanda account.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!-- templates/emails/phone_verification.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Verification - BusiMap Rwanda</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .verification-code {
+            background-color: #f8f9fa;
+            border: 3px dashed #28a745;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #28a745;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 Phone Verification</h1>
+            <p>BusiMap Rwanda</p>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {{ user.first_name }},</h2>
+            
+            <p>Please use the following verification code to verify your phone number:</p>
+            
+            <div class="verification-code">
+                {{ verification_code }}
+            </div>
+            
+            <p>Enter this code in the app to complete your phone verification.</p>
+            
+            <div class="warning">
+                <strong>⚠️ Important:</strong> This code will expire in 10 minutes for your security.
+                Do not share this code with anyone.
+            </div>
+            
+            <p>If you didn't request this verification, please ignore this message or contact support if you're concerned about your account's security.</p>
+            
+            <p>Best regards,<br>
+            <strong>The BusiMap Rwanda Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 BusiMap Rwanda. All rights reserved.</p>
+            <p>This verification code was requested for phone number: {{ phone_number }}</p>
+        </div>
+    </div>
+</body>
+</html>

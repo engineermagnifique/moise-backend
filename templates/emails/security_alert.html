@@ -1,0 +1,123 @@
+<!-- templates/emails/security_alert.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Alert - BusiMap Rwanda</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .alert-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        .info-box {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #0c5460;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .action-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚨 Security Alert</h1>
+            <p>BusiMap Rwanda</p>
+        </div>
+        
+        <div class="content">
+            <h2>Hello {{ user.first_name }},</h2>
+            
+            <div class="alert-box">
+                <strong>We detected unusual activity on your account:</strong>
+                <p>{{ alert_message }}</p>
+                <p><strong>Time:</strong> {{ activity_time }}</p>
+                <p><strong>Location:</strong> {{ activity_location }}</p>
+                <p><strong>Device:</strong> {{ activity_device }}</p>
+            </div>
+            
+            <p>If this was you, you can ignore this alert. If you don't recognize this activity, please take immediate action to secure your account.</p>
+            
+            <div class="info-box">
+                <strong>Recommended actions:</strong>
+                <ul>
+                    <li>Change your password immediately</li>
+                    <li>Review your recent login activity</li>
+                    <li>Enable two-factor authentication</li>
+                    <li>Contact support if you need assistance</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="{{ settings.FRONTEND_URL }}/change-password" class="action-button">
+                    Change Password
+                </a>
+                <a href="{{ settings.FRONTEND_URL }}/security" class="action-button" style="background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);">
+                    Security Settings
+                </a>
+            </div>
+            
+            <p>For your security, we recommend regularly updating your password and monitoring your account activity.</p>
+            
+            <p>Stay safe,<br>
+            <strong>The BusiMap Rwanda Security Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 BusiMap Rwanda. All rights reserved.</p>
+            <p>This is an automated security message. Please do not reply to this email.</p>
+        </div>
+    </div>
+</body>
+</html>
